@@ -45,21 +45,21 @@ def evaluate(train_set, test_set, classifier):
     # check which words are most informative for the classifier
     classifier.show_most_informative_features(20)
 
-if __name__ == "&amp;amp;quot;__main__&amp;amp;quot;":
-    # initialise the data
-    spam = init_lists('enron1/spam/')
-    ham = init_lists('enron1/ham/')
-    all_emails = [(email, 'spam') for email in spam]
-    all_emails += [(email, 'ham') for email in ham]
-    random.shuffle(all_emails)
-    print ('Corpus size = ' + str(len(all_emails)) + ' emails')
 
-    # extract the features
-    all_features = [(get_features(email, ''), label) for (email, label) in all_emails]
-    print ('Collected ' + str(len(all_features)) + ' feature sets')
+# initialise the data
+spam = init_lists('enron1/spam/')
+ham = init_lists('enron1/ham/')
+all_emails = [(email, 'spam') for email in spam]
+all_emails += [(email, 'ham') for email in ham]
+random.shuffle(all_emails)
+print ('Corpus size = ' + str(len(all_emails)) + ' emails')
 
-    # train the classifier
-    train_set, test_set, classifier = train(all_features, 0.8)
+# extract the features
+all_features = [(get_features(email, ''), label) for (email, label) in all_emails]
+print ('Collected ' + str(len(all_features)) + ' feature sets')
 
-    # evaluate its performance
-    evaluate(train_set, test_set, classifier)
+# train the classifier
+train_set, test_set, classifier = train(all_features, 0.8)
+
+# evaluate its performance
+evaluate(train_set, test_set, classifier)
