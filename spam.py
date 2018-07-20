@@ -45,7 +45,7 @@ def evaluate(train_set, test_set, classifier):
     # check which words are most informative for the classifier
     classifier.show_most_informative_features(20)
 
-if __name__ == &amp;amp;quot;__main__&amp;amp;quot;:
+if __name__ == "&amp;amp;quot;__main__&amp;amp;quot;":
     # initialise the data
     spam = init_lists('enron1/spam/')
     ham = init_lists('enron1/ham/')
